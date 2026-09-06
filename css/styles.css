@@ -355,3 +355,43 @@ a:focus-visible {
 .notice p { margin: 0; }
 .notice p + p { margin-top: 0.7rem; }
 
+
+/* ---------- language switch ---------- */
+
+.lang {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  margin-bottom: 2rem;
+}
+
+.lang a {
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.lang a:hover,
+.lang a:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.lang a[aria-current="page"] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+html[lang="en"] .bullets li,
+html[lang="en"] .lead,
+html[lang="en"] .doc p,
+html[lang="en"] .doc li { letter-spacing: 0; }
