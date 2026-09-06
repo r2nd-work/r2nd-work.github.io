@@ -1,68 +1,269 @@
-h1 {
-  /*線の種類（実線） 太さ 色*/
-  border-bottom: solid 3px black;
-  font-size: 2em;
+/* r2nd.work — base stylesheet */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f7f9fb;
+  --surface-hover: #eef2f7;
+  --text: #14161a;
+  --muted: #5c6470;
+  --accent: #0b6fd4;
+  --accent-soft: #e8f1fc;
+  --border: #e2e7ee;
+  --radius: 10px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Roboto Mono", monospace;
 }
 
-div.description {
-  font-size: 1em;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-hover: #1c232c;
+    --text: #e6edf3;
+    --muted: #9aa4b2;
+    --accent: #6cb6ff;
+    --accent-soft: #16283d;
+    --border: #262d36;
+  }
 }
 
-div.contact {
-  position: relative;
-  padding-left: 1.2em;/*アイコン分のスペース*/
-  line-height: 1.4;
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
 }
 
-div.contact:before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f0e0";/*アイコンのユニコード*/
-  font-weight: 900;
-  position: absolute;/*絶対位置*/
-  font-size: 1em;/*サイズ*/
-  left: 0;/*アイコンの位置*/
-  top: 0;/*アイコンの位置*/
-  color: #5ab9ff; /*アイコン色*/
-  font-weight: 900;
+.wrap {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 8vw, 5rem) 1.5rem clamp(3rem, 8vw, 5rem);
 }
 
-div.policy {
-  position: relative;
-  padding-left: 1.2em;/*アイコン分のスペース*/
-  line-height: 1.4;
+/* ---------- header ---------- */
+
+.site-header {
+  margin-bottom: 3rem;
 }
 
-div.policy:before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f249";/*アイコンのユニコード*/
-  font-weight: 900;
-  position: absolute;/*絶対位置*/
-  font-size: 1em;/*サイズ*/
-  left: 0;/*アイコンの位置*/
-  top: 0;/*アイコンの位置*/
-  color: #5ab9ff; /*アイコン色*/
-  font-weight: 900;
+.wordmark {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: clamp(1.9rem, 7vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
-.box17{
-  margin:2em 0;
-  position: relative;
-  padding: 0.5em 1.5em;
-  border-top: solid 2px black;
-  border-bottom: solid 2px black;
+.wordmark .dot { color: var(--accent); }
+
+.tagline {
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
-.box17:before, .box17:after{
-  content: '';
-  position: absolute;
-  top: -10px;
-  width: 2px;
-  height: -webkit-calc(100% + 20px);
-  height: calc(100% + 20px);
-  background-color: black;
+
+.tagline .en {
+  display: block;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
 }
-.box17:before {left: 10px;}
-.box17:after {right: 10px;}
-.box17 p {
-  margin: 0; 
+
+/* ---------- sections ---------- */
+
+.section + .section { margin-top: 3rem; }
+
+.section-title {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
+.lead {
+  margin: 0 0 1.4rem;
+  font-size: 0.98rem;
+}
+
+/* ---------- link list ---------- */
+
+.links {
+  list-style: none;
+  margin: 0;
   padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.95rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.links a:hover,
+.links a:focus-visible {
+  background: var(--surface-hover);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.links .icon {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--accent);
+}
+
+.links .label {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 600;
+  font-size: 0.97rem;
+}
+
+.links .note {
+  display: block;
+  font-weight: 400;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.links .chevron {
+  flex: none;
+  width: 0.85rem;
+  height: 0.85rem;
+  color: var(--muted);
+}
+
+.links a.primary {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.site-footer a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.copyright { font-family: var(--font-mono); font-size: 0.8rem; }
+
+/* ---------- long-form pages (policy) ---------- */
+
+.doc { max-width: 44rem; }
+
+.doc-back {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.doc-back:hover,
+.doc-back:focus-visible { color: var(--accent); }
+
+.doc h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 5vw, 1.9rem);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.doc .doc-intro {
+  margin: 0 0 2.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.doc h2 {
+  margin: 2.5rem 0 0.6rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent);
+}
+
+.doc p { margin: 0 0 1rem; font-size: 0.95rem; }
+
+.doc ul { margin: 0 0 1rem; padding-left: 1.4rem; font-size: 0.95rem; }
+
+.doc li { margin-bottom: 0.35rem; }
+
+.doc p a,
+.doc li a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.doc p a:hover,
+.doc li a:hover,
+.doc p a:focus-visible,
+.doc li a:focus-visible { border-bottom-color: var(--accent); }
+
+.doc .updated {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+
+/* ---------- a11y ---------- */
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
 }
