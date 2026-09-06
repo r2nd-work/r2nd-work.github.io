@@ -335,7 +335,7 @@ a:focus-visible {
   font-family: var(--font-mono);
   font-size: 0.83rem;
   line-height: 1.6;
-  white-space: nowrap;
+  max-width: 100%;
 }
 
 .chips li .yrs { color: var(--muted); margin-left: 0.35em; font-size: 0.78rem; }
