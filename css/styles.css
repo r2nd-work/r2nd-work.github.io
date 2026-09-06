@@ -267,3 +267,132 @@ a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* ---------- catchphrase & intro ---------- */
+
+.catch {
+  margin: 1.4rem 0 0;
+  font-size: clamp(1rem, 3.2vw, 1.12rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.catch .sep { color: var(--accent); margin: 0 0.4em; font-weight: 400; }
+
+/* ---------- stats ---------- */
+
+.stats {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: 1.1rem 1rem;
+}
+
+.stats dt {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
+.stats dd {
+  margin: 0.15rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.stats dd .unit {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 0.15em;
+}
+
+/* ---------- bullet lists ---------- */
+
+.bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.group + .group { margin-top: 1.75rem; }
+
+.group-title {
+  margin: 0 0 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* ---------- skill chips ---------- */
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chips li {
+  padding: 0.32rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.chips li .yrs { color: var(--muted); margin-left: 0.35em; font-size: 0.78rem; }
+
+/* ---------- notice ---------- */
+
+.notice {
+  margin: 0;
+  padding: 1.1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  font-size: 0.94rem;
+}
+
+.notice p { margin: 0; }
+.notice p + p { margin-top: 0.7rem; }
+
+.notice .rate {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent);
+}
