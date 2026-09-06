@@ -280,42 +280,6 @@ a:focus-visible {
 
 .catch .sep { color: var(--accent); margin: 0 0.4em; font-weight: 400; }
 
-/* ---------- stats ---------- */
-
-.stats {
-  list-style: none;
-  margin: 1.75rem 0 0;
-  padding: 1.25rem 0 0;
-  border-top: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
-  gap: 1.1rem 1rem;
-}
-
-.stats dt {
-  font-size: 0.74rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-family: var(--font-mono);
-}
-
-.stats dd {
-  margin: 0.15rem 0 0;
-  font-family: var(--font-mono);
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-}
-
-.stats dd .unit {
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--muted);
-  margin-left: 0.15em;
-}
-
 /* ---------- bullet lists ---------- */
 
 .bullets {
@@ -391,8 +355,3 @@ a:focus-visible {
 .notice p { margin: 0; }
 .notice p + p { margin-top: 0.7rem; }
 
-.notice .rate {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  color: var(--accent);
-}
