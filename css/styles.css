@@ -8,6 +8,7 @@
   --muted: #5c6470;
   --accent: #0b6fd4;
   --accent-soft: #e8f1fc;
+  --accent-red: #d92020;
   --border: #e2e7ee;
   --radius: 10px;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
@@ -25,6 +26,7 @@
     --muted: #9aa4b2;
     --accent: #6cb6ff;
     --accent-soft: #16283d;
+    --accent-red: #ff6161;
     --border: #262d36;
   }
 }
@@ -65,7 +67,9 @@ body {
   line-height: 1.2;
 }
 
-.wordmark .dot { color: var(--accent); }
+.wordmark .wm-lead { font-size: 1.28em; }
+.wordmark .wm-rest { font-size: 0.76em; }
+.wordmark .dot { color: var(--accent-red); }
 
 .tagline {
   margin: 0.9rem 0 0;
