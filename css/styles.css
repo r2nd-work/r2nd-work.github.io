@@ -52,6 +52,19 @@ body {
   padding: clamp(2.5rem, 8vw, 5rem) 1.5rem clamp(3rem, 8vw, 5rem);
 }
 
+/* ---------- hero ---------- */
+
+.hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 2.25rem;
+}
+
 /* ---------- header ---------- */
 
 .site-header {
